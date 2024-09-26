@@ -1,58 +1,28 @@
-Instance: PatientExample1
-InstanceOf: TestPatient
+Instance: KenyaPatientExample
+InstanceOf: Kenya-Patient
 Usage: #example
-Title: "Patient - Marital Status Captured"
-Description: "Patient documented as married."
-* name[+].given[+] = "John"
-* name[=].given[+] = "Doe"
-* maritalStatus = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M
-* maritalStatus.extension[MaritalStatusDate].valueDate = "1999-01-01"
-
-Instance: PatientExample2
-InstanceOf: TestPatient
-Usage: #example
-Title: "Patient - Marital Status Not Captured (Example 1)"
-Description: "Patient marital status not documented."
-* name[+].given[+] = "John"
-* name[=].given[+] = "Doe"
-
-Instance: PatientExample3
-InstanceOf: TestPatient
-Usage: #example
-Title: "Patient - Marital Status Not Captured (Example 2)"
-Description: "
-    Patient marital status not documented but includes a Mother relationship.
-    
-    Note: Includes patient relation."
-
-* name[+].given[+] = "John"
-* name[=].given[+] = "Doe"
-* link[+].type = #seealso
-* link[=].other = Reference(MotherRelatedPersonExample1)
-
-Instance: MotherRelatedPersonExample1
-InstanceOf: TestPatientRelation
-Usage: #example
-Title: "Related Person - Mother Relationship (Example 1)"
-Description: "Marital status documented using a HL7 code."
-
-* name[+].given[+] = "Jane"
-* name[=].given[+] = "Smith"
-* patient = Reference(PatientExample3)
-* relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
-* extension[MaritalStatusAndEffectiveDate][+].extension[MaritalStatus].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#D
-* extension[MaritalStatusAndEffectiveDate][=].extension[MaritalStatusDate].valueDate = "1999-01-01"
-
-Instance: MotherRelatedPerson2
-InstanceOf: TestPatientRelation
-Usage: #example
-Title: "Related Person - Mother Relationship (Example 2)"
-Description: "Marital status documented using a proprietary code."
-
-* name[+].given[+] = "Jane"
-* name[=].given[+] = "Smith"
-* patient = Reference(PatientExample3)
-* relationship = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MTH
-* extension[MaritalStatusAndEffectiveDate][+].extension[MaritalStatus].valueCodeableConcept = http://example.com/fhir/CodeSystem/cs-marital-status#Other
-* extension[MaritalStatusAndEffectiveDate][=].extension[MaritalStatus].valueCodeableConcept.text = "Some other code/reason"
-* extension[MaritalStatusAndEffectiveDate][=].extension[MaritalStatusDate].valueDate = "1999-01-01"
+Title: "Kenya Patient Example"
+Description: "Kenya Patient Example"
+* identifier[NID].value = "0012016867"
+* identifier[NID].system = "http://jembi.org/fhir/ImplementationGuide/createtest-project-gloria/identifier/nid"
+* identifier[MRN].value = "MRN0000001"
+* identifier[MRN].system = "http://jembi.org/fhir/ImplementationGuide/createtest-project-gloria/identifier/mrn"
+* telecom[+].system = #phone
+* telecom[+].value = "0700000000" 
+//* telecom[+].system = #email
+//* telecom[+].value = "myname24@gmail.com"
+* name[+].family = "Muema"
+* name[=].given[+] = "Gloria"
+* name[=].given[+] = "Mutheu"
+* name[=].given[+] = "Mwesh"
+* gender = #female
+* maritalStatus.coding.code = #M
+* maritalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"
+* birthDate  = "1982-04"
+* address.city = "Kilimani" 
+* address.line = "kenyatta avenue"
+* address.district = "Kilimani"
+* address.state = "Nairobi" 
+* address.country = "KEN" 
+* extension[KPS].valueCodeableConcept.coding.code = #472986005
+* extension[KPS].valueCodeableConcept.coding.system = $SCT

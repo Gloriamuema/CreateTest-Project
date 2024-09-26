@@ -7,10 +7,10 @@
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 
 
-id: my-ig
-canonical: http://example.com/fhir
-url: http://example.com/fhir/ImplementationGuide/my-ig
-name: ExampleIG
+id: createtest-project-gloria
+canonical: http://jembi.org/fhir
+url: http://jembi.org/fhir/ImplementationGuide/createtest-project-gloria
+name: Createtest-Project
 title: "HL7 FHIR Implementation Guide: Example IG Release 1 - US Realm | STU1"
 description: Example IG exercises many of the fields in a SUSHI configuration.
 status: draft
@@ -21,7 +21,7 @@ version: 1.0.0
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here, but the current tooling 
 # only supports one FHIR version per Implementation Guide
-fhirVersion: 5.0.0
+fhirVersion: 4.0.1
 
 # The following two lines correspond to items that used to be in
 # ig.ini but were moved to IG.definition.parameter. For
@@ -59,12 +59,12 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 # The dependencies property corresponds to IG.dependsOn. The key is the
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for `uri` and `version`.
-#dependencies:
-#  hl7.fhir.us.core: 3.1.0
-#  hl7.fhir.us.mcode:
-#    id: mcode
-#    uri: http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode
-#    version: 1.0.0
+dependencies:
+#  hl7.fhir.uv.core: 3.1.0
+ hl7.fhir.uv.ips:
+   id: InternationalPatientSummaryIG
+   uri: http://hl7.org/fhir/uv/ips/ImplementationGuide/hl7.fhir.uv.ips
+   version: 1.1.0
 
 # The global property corresponds to the IG.global property, but it
 # uses the type as the YAML key and the profile as its value. Since
